@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<!--Created by Manasi Rajv Weginwar for Computer Vision tutorial-->
+<html>
+	<head>
+		<title>Predicting Spatial relations between objects</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="introduction.html" class="logo">Introduction</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+				       <ul class="links">
+							<li><a href="index.html">Abstract</a></li>
+							<li><a href="introduction.html">Introduction</a></li>
+							<li class="active"><a href="elements.html">Techniques Used</a></li>
+                            <li><a href="deeplearning.html">Deep learning based Image captioning</a></li>
+                            <li><a href="objectrelation.html">Object Relation Transformer</a></li>
+                           <li><a href="challenges&future.html">Future Scope</a></li>
+                           <li><a href="references.html">References</a></li>
+						</ul>
+<!--
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+-->
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Image Captioning Techniques Used </h1>
+								</header>
+
+								<!-- Text stuff -->
+									<h2>Template-based image captioning</h2>
+									<p>It consists of a fixed template which consists of blank slots to fill up generated captions. This method first detects objects, its attributes and actions and then fills blank space with generated captions. Although it generates grammatically correct captions but since it has predefined templates, generated captions cannot be of variable length. Further, more approaches were introduced where disadvantage of having fixed length is overcome.</p>
+                                
+                                <p>Example, paper [6] uses template based image captioning approach and below figure helps us to get better understanding of the approach</p>
+                                <div class="image main"><img src="images/Picture3.png" alt="" /></div>
+                                
+                                
+                                	<h2>Retrieval based image captioning</h2>
+									<p>It retrieves caption from the set of existing captions. It first finds similar images from the dataset and then the captions are pooled from the training caption pool. This method produces syntactically correct captions but not image specific and semantically correct.</p>
+                                
+                                <p>Example in paper [7], retrieval based image caption is used along with two kinds       annotations on dataset, and while testing this approach each image has different sentence associated with it.</p>
+                                <div class="image main"><img src="images/Picture4.png" alt="" /></div>
+                                
+                                	<h2>Novel based image captioning</h2>
+									<p>Both the above mentioned approaches don't quite generate satisfactory results, hence this approach is very helpful as the method focuses on both visual space and multimode space. This method first focuses on visual content of the image and then generates captions using a language model. The method can generate new captions based on the image which is semantically correct than previous methods.</p>
+                                
+                                <p>For example,paper [8] uses Long Short Term Memory with Attributes as decoder and CNN as encoder for training end to end. And the results are shown below:</p>
+                                <div class="image main"><img src="images/Picture5.png" alt="" /></div>
+                                
+                                    <ul class="actions special">
+									<li><a href="deeplearning.html" class="button large">Deep Learning Based Image captioning</a></li>
+				            </ul>
+                        </section>
+
+				<!-- Copyright -->
+					<div id="copyright">
+                        <ul><li>&copy; Manasi Rajiv Weginwar</li></ul>
+					</div>
+
+			</div>
+        </div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

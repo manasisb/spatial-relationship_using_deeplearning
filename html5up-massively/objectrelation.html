@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<!--Created by Manasi Rajv Weginwar for Computer Vision tutorial-->
+<html>
+	<head>
+		<title>Predicting Spatial relations between objects</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="deeplearning.html" class="logo">Deep Learning based Techniques</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+				        <ul class="links">
+							<li><a href="index.html">Abstract</a></li>
+							<li><a href="introduction.html">Introduction</a></li>
+							<li><a href="elements.html">Techniques Used</a></li>
+                            <li><a href="deeplearning.html">Deep learning based Image captioning</a></li>
+                            <li class="active"><a href="objectrelation.html">Object Relation Transformer</a></li>
+                           <li><a href="challenges&future.html">Future Scope</a></li>
+                            <li><a href="references.html">References</a></li>
+						</ul>
+<!--
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+-->
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Object Relation Tranformer Method</h1>
+								</header>
+
+								<!-- Text stuff -->
+									<h2>Object Relation Transformer </h2>
+									<p> This model is built on top of encoder - decoder architecture, as in encoder decoder architecture the feature vector is extracted using CNN, in this model along with feature vector spatial object relations are also added. Spatial relations between objects are detected using geometric features which are extracted using Object relation transformers. </p>
+                                
+                                <p>Paper [13] uses object relation transformer technique which is one of the recent techniques developed on top of encoder decoder architecture to determine quantitative as well as qualitative usefulness of geometric features. </p>
+                                
+                                <p> The basic flow of the above-mentioned method is as follows:</p>
+                                <p> Object Detector (used to extract features and geometric appearance of all detected objects) ⇒ Object Transform Relation (to generate captions) ⇒ Box relation encoding for Tranformer</p>
+                                <div class="image main"><img src="images/Picture9.png" alt="" /></div>
+                                
+                                	<h2>Algorithm breakdown - </h2>
+                                    <h3>Object Detection </h3>
+									<p>This paper [13], uses Faster R-CNN with ResNet 101 as base CNN for object detection and feature extraction. ResNet 101 is a 101-layer deep convolutional neural network. A million pre-trained dataset can be loaded in ResNet and as a result a rich representation of features can be extracted. These ResNet features maps are then used by the region proposal network (RPN) which is an inbuilt region proposal for Faster R-CNN compared to the other R-CNN techniques and hence this is faster and better tuned methods which is used to generate bounding boxes for object detection. </p>
+                                <h4> Steps used for object detection:</h4>
+                                <ul>
+                                    <li>Faster R-CNN with ResNet 101</li>
+                                     <li>Overlapping bounding boxes with threshold of over 0.7 is discarded</li>
+                                     <li>RoI (region of interest) is used to convert all bounding boxes to same spatial size</li>
+                                     <li>CNN layers predict class labels and bounding boxes</li>
+                                     <li>Bounding boxes with class prediction under 0.2 is discarded</li>
+                                    <li>Mean pooling is done to generate 2048 dimensional features</li>
+                                
+                                </ul>
+                                
+                                <h3>Transformer Model </h3>
+                                <p>It consists of an encoder and decoder model which has various layers. Feature vectors extracted from the object detection is feeded to this transformer model and sequences of words are generated. As the feature vector is processed the dimensions of the images are also reduced from 2048 to 512 followed by ReLU and dropout layers. Object relation transformers focus on spatial relationships between the objects.</p>
+                                <div class="image main"><img src="images/Picture10.png" alt="" /></div>
+                                
+                                <p class= "centeralign">Fig:First caption is generated using Standard transformer and second one using object relation transformer.</p>
+                                
+                                
+                                <h3>Dataset Used </h3>
+                                <p>MS COCO Dataset: Microsoft COCO dataset is a very large dataset for image captioning. Many image captioning methods use this dataset as it has various features like multiple objects per class, object segmentation etc.</p>
+                                
+                                <h3>Metrics Evaluation </h3>
+                                <ul>
+                                    <l>CIDEr-D : </l>
+                                    <p>CIDEr is a Consensus-based Image Description Evaluation metrics which works with various types of dataset and for MS-COCO based it’s version CIDEr-D is used which enables systematic evaluation and benchmarking. In paper[13], the authors have evaluated the proposed algorithm against this and have found much high correlation between its results and human judgment.</p>
+                                    
+                                    <l>SPICE :</l>
+                                    <p>SPICE stands for Semantic Propositional Image Caption Evaluation metric which measures correlation between the human generated annotations versus model generated captioning results. In paper[13], the authors have evaluated the proposed algorithm against these metrics as well  and have found a much higher correlation between its results and human judgment.</p>
+                                    
+                                </ul>
+                                
+                                
+                                      <ul class="actions special">
+									<li><a href="challenges&future.html" class="button large">Challenges and Future Scope</a></li>
+				            </ul>
+                        </section>
+                                
+
+				<!-- Copyright -->
+					 <div id="copyright"> <ul><li>&copy; Manasi Rajiv Weginwar</li></ul></div>
+
+			</div>
+        </div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

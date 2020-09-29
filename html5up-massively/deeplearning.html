@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<!--Created by Manasi Rajv Weginwar for Computer Vision tutorial-->
+<html>
+	<head>
+		<title>Predicting Spatial relations between objects</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="elements.html" class="logo">Techniques Used</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+				       <ul class="links">
+							<li><a href="index.html">Abstract</a></li>
+							<li><a href="introduction.html">Introduction</a></li>
+							<li><a href="elements.html">Techniques Used</a></li>
+                            <li class="active"><a href="deeplearning.html">Deep learning based Image captioning</a></li>
+                            <li><a href="objectrelation.html">Object Relation Transformer</a></li>
+                           <li><a href="challenges&future.html">Future Scope</a></li>
+                           <li><a href="references.html">References</a></li>
+						</ul>
+<!--
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+-->
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Deep Learning Based Image Captioning Methods</h1>
+								</header>
+                                
+	                   <!-- Text stuff -->
+									<h2>Visual Space vs Multimodal Space </h2>
+									<p>Deep learning-based image captioning models learn from both visual space and multimodal space. In visual space, image features and corresponding captions are passed independently while in multimodal space a shared space learns from image and corresponding captions. Multimodal architecture consists of an image and language encoder, a vision, a multimodal space, and a language decoder parts.As an example, in multimodal space, deep neural networks as well as language encoders can be used together to learn about image as well as text jointly. </p>
+        
+                                <p>In paper [9], a multimodal Recurrent Neural Network (m-RNN) method is used for generating captions. This paper uses deep convolutional networks for images and deep recurrent neural networks for sentences. As both these networks work together in multimodal space, it is a multimodal layer architecture. Image and sentence fragments are given as input to this method and then it calculates the probability distribution to generate the next word of captions</p>
+                                <div class="image main"><img src="images/Picture6.png" alt="" /></div>
+                                <p class= "centeralign">Fig: Block diagram for multimodal space based image captioning</p>
+                                
+                                
+                                	<h2>Supervised learning vs other deep learning-based techniques </h2>
+									<p>Supervised learning works with labelled dataset while unsupervised learning works with unlabeled dataset. There are various types of unsupervised and supervised methods, here I will be focusing on unsupervised based reinforcement learning. A reinforcement-based learning consists of learning agents which chooses a particular action, based on that action it receives rewards, and then moves to the next step. The agent chooses action which will help receive maximum time reward value and hence its needs continue state information for determining value function, but due to lack the guaranteed value function policy gradient method was introduced. Policy driven methods focus on a particular domain rather than generalizing and hence have in depth domain knowledge which increases learning coverage.</p>
+                                
+                                <p> In paper [11], actor-critic reinforcement technique is used to optimize non-differentiable problems. The actor considers the job as a sequential decision problem and can predict the next token of the sequence. In each state of the sequence, the network will receive a task-specific reward. The job of the critic is to predict the reward. If it can predict the expected reward, the actor will continue to sample outputs according to its probability distribution.</p>
+                                <div class="image main"><img src="images/Picture7.png" alt="" /></div>
+                                <p class= "centeralign">Fig: Block diagram for other deep learning based image captioning</p>
+                                
+                                	<h2>Encoder Decoder Architecture </h2>
+									<p>This is a simple neural network-based encoder decoder architecture where image features are extracted from a hidden layer of CNN and then feeder to LSTM to generate sequences of words. A CNN detects objects of the image and their relationships and this output is then feed to LSTM which generates works and then combines them to phrases and then generate sentences. </p>
+                                
+                                <p>In paper [12], a bidirectional LSTM is used to generate semantically and contextually rich sentences along with CNN.</p>
+                                <div class="image main"><img src="images/Picture8.png" alt="" /></div>
+                                <p class= "centeralign">Fig:Block diagram for encoder-decoder based image captioning</p>
+                                
+                                    <ul class="actions special">
+									<li><a href="objectrelation.html" class="button large">Object Relation Transformer</a></li>
+				            </ul>
+                        </section>
+
+
+				<!-- Copyright -->
+				         <div id="copyright"> <ul><li>&copy; Manasi Rajiv Weginwar</li></ul></div>
+
+			</div>
+        </div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
